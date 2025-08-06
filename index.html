@@ -2,49 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Parcel Info Lookup</title>
+  <title>Parcel Properties Lookup</title>
   <style>
     body {
-      background-color: white;
-      font-family: sans-serif;
+      background-color: #282c34;
+      font-family: Arial, sans-serif;
+      color: white;
       text-align: center;
-      margin-top: 100px;
+      padding-top: 100px;
     }
 
     h2 {
-      margin-bottom: 20px;
+      font-size: 3em;
+      color: white;
+      text-shadow:
+        -1px -1px 0 #fff,
+         1px -1px 0 #fff,
+        -1px  1px 0 #fff,
+         1px  1px 0 #fff;
     }
 
     input {
       padding: 10px;
-      font-size: 16px;
+      font-size: 1em;
       width: 300px;
-      max-width: 90%;
+      border-radius: 6px;
+      border: none;
+      margin-right: 10px;
     }
 
     button {
       padding: 10px 20px;
-      font-size: 16px;
-      margin-left: 10px;
+      font-size: 1em;
+      background-color: #61dafb;
+      border: none;
+      border-radius: 6px;
       cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #21a1f1;
     }
   </style>
 </head>
 <body>
-  <h2>Parcel Info Lookup</h2>
+
+  <h2>Parcel Properties Lookup</h2>
   <form onsubmit="lookupParcel(); return false;">
-    <input type="text" id="parcelID" placeholder="Enter Parcel ID (e.g. 200750120005)" required>
+    <input type="text" id="parcelID" placeholder="Enter Parcel ID" required>
     <button type="submit">Go</button>
   </form>
 
   <script>
     function lookupParcel() {
       const pid = document.getElementById('parcelID').value.trim();
-      if (!pid) return;
-
       const url = `https://www.utahcounty.gov/LandRecords/property.asp?av_serial=${encodeURIComponent(pid)}`;
       window.open(url, '_blank');
     }
   </script>
+
 </body>
 </html>
