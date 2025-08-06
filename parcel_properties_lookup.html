@@ -1,0 +1,17 @@
+<html>
+  <body>
+    <h2>Parcel Properties Lookup</h2>
+    <form onsubmit="lookupParcel(); return false;">
+      <input type="text" id="parcelID" placeholder="Enter Parcel ID" required>
+      <button type="submit">Go</button>
+    </form>
+
+    <script>
+      function lookupParcel() {
+        const pid = document.getElementById('parcelID').value;
+        const url = `https://www.utahcounty.gov/LandRecords/SerialVersions.asp?av_serial=${encodeURIComponent(pid)}&button=Submit+Query`;
+        window.open(url, '_blank');
+      }
+    </script>
+  </body>
+</html>
